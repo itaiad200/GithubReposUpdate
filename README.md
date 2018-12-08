@@ -1,6 +1,6 @@
 # GithubReposUpdate
 
-Prequisites:
+Prerequisites:
   - Python 2.7
   
 <br/>
