@@ -8,7 +8,7 @@ from threading import Thread
 from threading import Lock
 
 NUMBER_OF_THREADS = 5
-OUTPUT_FILE = "output2.csv"
+OUTPUT_FILE = "output.csv"
 
 repo_properties = ["repo_id","repo_name","repo_url","actor_id","actor_login","actor_avatar_url","actor_url","org_id","org_login","org_url","commits","html_url","forked","description","full_name","lang","watchers","forks_count"]
 GithubUrlTemplate = "https://api.github.com/repos/{repo_name}"
