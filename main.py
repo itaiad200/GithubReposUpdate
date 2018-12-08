@@ -8,6 +8,7 @@ from threading import Thread
 from threading import Lock
 
 NUMBER_OF_THREADS = 5
+OUTPUT_FILE = "output2.csv"
 
 repo_properties = ["repo_id","repo_name","repo_url","actor_id","actor_login","actor_avatar_url","actor_url","org_id","org_login","org_url","commits","html_url","forked","description","full_name","lang","watchers","forks_count"]
 GithubUrlTemplate = "https://api.github.com/repos/{repo_name}"
@@ -35,7 +36,7 @@ def ExtractRepos(filePath):
     return reposQueue
 
 def WriteRepos():
-    with open('output.csv', 'w') as csv_file:
+    with open(OUTPUT_FILE, 'w') as csv_file:
         writer = csv.writer(csv_file)
         for key, value in Results.items():
             writer.writerow([key, value])
@@ -71,7 +72,7 @@ class Worker(Thread):
                     continue
 
             repoAddress = GithubUrlTemplate.replace("{repo_name}", repo["repo_name"])
-            print("Worker %d Working on repo %s", self.id, repoAddress)
+            print "Worker " + str(self.id) +" Working on repo" + str(repoAddress)
 
             try:
                 contents = urllib2.urlopen(repoAddress).read()
